@@ -1,56 +1,56 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   client.c                                           :+:      :+:    :+:   */
+/*   minitalk_utils.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: osarihan <osarihan@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/11 17:26:43 by osarihan          #+#    #+#             */
-/*   Updated: 2022/04/12 11:57:57 by osarihan         ###   ########.fr       */
+/*   Created: 2022/04/12 12:01:29 by osarihan          #+#    #+#             */
+/*   Updated: 2022/04/12 12:47:25 by osarihan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
-void	ft_send(int pid, char c)
+int	ft_strlen(const char *str)
 {
-	int	i;
-	int	bit;
+	int	len;
 
-	i = 7;
-	while (i >= 0)
-	{
-		bit = (c >> i) & 1;
-		if (bit == 0)
-			kill(pid, SIGUSR1);
-		else
-			kill(pid, SIGUSR2);
-		--i;
-		usleep(150);
-	}
+	len = 0;
+	while (str[len] != '\0')
+		len++;
+	return (len);
 }
 
-void	message_char(int pid, char *str)
+char	*ft_strdup(const char *str)
+{
+	int		len;
+	int		i;
+	char	*mlc;
+
+	i = 0;
+	len = 0;
+	len = ft_strlen(str);
+	mlc = malloc(sizeof(char) * (len + 1));
+	if (!str)
+		return (0);
+	while (str[i] != '\0')
+	{
+		mlc[i] = str[i];
+		i++;
+	}
+	mlc[i] = '\0';
+	return (mlc);
+}
+
+void	ft_putstr(char *str)
 {
 	int	i;
 
 	i = 0;
-	while (str[i])
+	while (str[i] != '\0')
 	{
-		ft_send(pid, str[i]);
+		write(1, &str[i], 1);
 		i++;
 	}
-}
-
-int	main(int argc, char **argv)
-{
-	int	pid;
-
-	if (argc < 3)
-		ft_putstr(PIDERROR);
-	if (argc > 3)
-		ft_putstr(ARGERROR);
-	pid = ft_atoi(argv[1]);
-	message_char(pid, argv[2]);
-	return (0);
 }

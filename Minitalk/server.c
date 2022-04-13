@@ -6,7 +6,7 @@
 /*   By: osarihan <osarihan@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 17:26:40 by osarihan          #+#    #+#             */
-/*   Updated: 2022/04/12 11:42:13 by osarihan         ###   ########.fr       */
+/*   Updated: 2022/04/13 11:42:00 by osarihan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,20 +32,20 @@ void	binarytodecimal(char *bits)
 
 void	ft_signal(int signal)
 {
-	static int	contador;
+	static int	counter;
 	static char	*bits;
 
-	contador++;
+	counter++;
 	if (bits == NULL)
 	{
 		bits = ft_strdup("");
-		contador = 1;
+		counter = 1;
 	}
 	if (signal == SIGUSR1)
 		bits = ft_strjoin(bits, '0');
 	else
 		bits = ft_strjoin(bits, '1');
-	if (contador == 8)
+	if (counter == 8)
 	{
 		binarytodecimal(bits);
 		free(bits);
@@ -67,7 +67,7 @@ int	main(void)
 	while (1)
 	{
 		signal(SIGUSR1, ft_signal);
-		signal(SIGUSR1, ft_signal);
+		signal(SIGUSR2, ft_signal);
 		pause();
 	}
 	return (0);
