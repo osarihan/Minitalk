@@ -6,7 +6,7 @@
 /*   By: osarihan <osarihan@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 12:19:05 by osarihan          #+#    #+#             */
-/*   Updated: 2022/04/13 11:36:31 by osarihan         ###   ########.fr       */
+/*   Updated: 2022/04/14 11:39:53 by osarihan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	ft_atoi(const char *str)
 	i = 0;
 	number = 0;
 	x = 1;
-	if (str[i] >= '\t' && str[i] <= '\r' || str[i] == ' ')
+	if ((str[i] >= '\t' && str[i] <= '\r') || str[i] == ' ')
 		i++;
 	if (str[i] == '-')
 	{
