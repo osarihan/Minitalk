@@ -1,5 +1,5 @@
 SRC_SERVER = server.c minitalk_utils.c minitalk_utils2.c
-SRC_CLIENT = server.c minitalk_utils.c minitalk_utils2.c
+SRC_CLIENT = client.c minitalk_utils.c minitalk_utils2.c
 
 NAME_SERVER = server
 NAME_CLIENT = client
