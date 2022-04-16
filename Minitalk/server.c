@@ -6,7 +6,7 @@
 /*   By: osarihan <osarihan@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 17:26:40 by osarihan          #+#    #+#             */
-/*   Updated: 2022/04/13 11:42:00 by osarihan         ###   ########.fr       */
+/*   Updated: 2022/04/16 12:46:13 by osarihan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ void	ft_signal(int signal)
 	static int	counter;
 	static char	*bits;
 
-	counter++;
 	if (bits == NULL)
 	{
 		bits = ft_strdup("");
@@ -51,6 +50,7 @@ void	ft_signal(int signal)
 		free(bits);
 		bits = NULL;
 	}
+	counter++;
 }
 
 int	main(void)

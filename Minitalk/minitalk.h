@@ -6,7 +6,7 @@
 /*   By: osarihan <osarihan@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 17:29:49 by osarihan          #+#    #+#             */
-/*   Updated: 2022/04/12 12:47:19 by osarihan         ###   ########.fr       */
+/*   Updated: 2022/04/15 13:37:56 by osarihan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <signal.h>
-# include <limits.h>
 
 char			*ft_itoa(int n);
 void			ft_putstr(char *str);
